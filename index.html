@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html> 
+<meta charset="utf-8">
+<head>
+<title>簡易小遊戲</title>
+<link rel="icon" type="image/x-icon" href="logo.ico">
+</head>
+<body>
+<header id="header">
+<h1 style='color:rgb(0, 51, 102);'>小遊戲</h1>
+</header>
+<div id='content'>
+<div id='mark'>
+<h1 id="counter">0</h1>
+<button onclick="display()">Start</button>
+</div>
+<div id='game'>
+<div onclick="hit()" id="animate">
+</div>
+</div>
+</div>
+<style>
+#animate 
+{ 
+width:50px;
+height:50px;
+position:absolute;
+background:rgb(153, 153, 102);
+}
+#header
+{
+height:100px;
+background-image:url(1.png);
+padding:1em;
+text-align:center;
+background-repeat:no-repeat;
+background-size:cover;
+}
+#content
+{
+background-image:url(2.png);
+height:800px;
+background-repeat:no-repeat;
+background-size:cover;
+padding:1em;
+background-attachment:fixed;
+display: flex;
+flex-direction:column;
+}
+#game
+{
+background-color:rgb(204, 255, 255);
+height:500px;width:500px;
+position:absolute;
+left:50%;top:65%;
+transform:translate(-50%,-50%);
+}
+#counter
+{
+font-size:40px;
+text-align:center;
+color:white;
+}
+#mark
+{
+background-color:black;
+height:100px;width:500px;
+position:absolute;
+left:50%;top:30%;
+transform:translate(-50%,-50%);
+}
+#retry
+{
+text-align:center;
+left:50%;top:10%;
+position:absolute;
+transform:translate(-50%,-50%);
+}
+</style>
+<script>
+let number=0
+function hit() {
+number=number+1
+document.getElementById("counter").innerHTML = number;
+}
+function display()
+{
+setInterval(display,1000);
+let elem =document.getElementById("animate");
+let x=Math.floor((Math.random()*400)+1);
+let y=Math.floor((Math.random()*400)+1);
+elem.style.left=x+"px";
+elem.style.top=y+"px";
+}
+</script>
+</html>
